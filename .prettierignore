@@ -1,0 +1,10 @@
+node_modules/
+.output/
+.wxt/
+coverage/
+public/icon/
+pnpm-lock.yaml
+*.zip
+*.crx
+*.pem
+*.log

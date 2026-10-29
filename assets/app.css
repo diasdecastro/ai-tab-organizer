@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    system-ui, ui-sans-serif, sans-serif;
+
+  --color-app-bg: var(--app-bg);
+  --color-app-surface: var(--app-surface);
+  --color-app-surface-strong: var(--app-surface-strong);
+  --color-app-elevated: var(--app-elevated);
+  --color-app-hover: var(--app-hover);
+  --color-app-input: var(--app-input);
+  --color-app-border: var(--app-border);
+  --color-app-border-strong: var(--app-border-strong);
+  --color-app-text: var(--app-text);
+  --color-app-text-secondary: var(--app-text-secondary);
+  --color-app-muted: var(--app-muted);
+  --color-app-subtle: var(--app-subtle);
+
+  --animate-fade-in: fade-in 160ms ease-out;
+  --animate-rise: rise 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  color-scheme: light;
+
+  --app-bg: #edf4fc;
+  --app-surface: rgba(255, 255, 255, 0.78);
+  --app-surface-strong: #ffffff;
+  --app-elevated: rgba(255, 255, 255, 0.94);
+  --app-hover: rgba(15, 23, 42, 0.055);
+  --app-input: rgba(15, 23, 42, 0.045);
+  --app-border: rgba(15, 23, 42, 0.1);
+  --app-border-strong: rgba(15, 23, 42, 0.16);
+  --app-text: #0b1220;
+  --app-text-secondary: #24334a;
+  --app-muted: #586a82;
+  --app-subtle: #7b8ca3;
+  --app-scrollbar: rgba(15, 23, 42, 0.18);
+  --app-glow:
+    radial-gradient(90% 60% at 8% 0%, rgb(10 132 255 / 0.14), transparent 62%),
+    radial-gradient(
+      70% 50% at 100% 4%,
+      rgb(90 200 250 / 0.18),
+      transparent 58%
+    ),
+    linear-gradient(180deg, #f2f8ff 0%, #edf4fc 55%, #e8f1fb 100%);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --app-bg: #050b14;
+  --app-surface: rgba(255, 255, 255, 0.035);
+  --app-surface-strong: #0d1726;
+  --app-elevated: #07101d;
+  --app-hover: rgba(255, 255, 255, 0.07);
+  --app-input: rgba(0, 0, 0, 0.25);
+  --app-border: rgba(255, 255, 255, 0.07);
+  --app-border-strong: rgba(255, 255, 255, 0.12);
+  --app-text: #f4f7fb;
+  --app-text-secondary: #c7d2df;
+  --app-muted: #8b9bb0;
+  --app-subtle: #63748a;
+  --app-scrollbar: rgba(255, 255, 255, 0.16);
+  --app-glow:
+    radial-gradient(85% 65% at 10% 0%, rgb(10 132 255 / 0.2), transparent 62%),
+    radial-gradient(70% 55% at 100% 5%, rgb(90 200 250 / 0.1), transparent 58%),
+    linear-gradient(180deg, #07101d 0%, #050b14 55%, #050b14 100%);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.popup-body {
+  width: 460px;
+  height: 500px;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+::selection {
+  background: rgb(10 132 255 / 0.3);
+}
+
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: var(--app-scrollbar) transparent;
+}
+
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--app-scrollbar);
+}
+
+.bg-app-glow {
+  background: var(--app-glow);
+}
+
+:root:not(.dark) [class*="text-emerald-"] {
+  color: #047857 !important;
+}
+
+:root:not(.dark) [class*="text-amber-"] {
+  color: #b45309 !important;
+}
+
+:root:not(.dark) [class*="text-red-"] {
+  color: #b91c1c !important;
+}
+
+:root:not(.dark) [class*="text-sky-"] {
+  color: #0369a1 !important;
+}

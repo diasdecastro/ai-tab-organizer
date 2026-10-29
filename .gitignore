@@ -1,0 +1,14 @@
+node_modules/
+.output/
+.wxt/
+.env
+.env.*
+!.env.example
+*.zip
+*.pem
+*.crx
+*.log
+coverage/
+.vscode/
+.idea/
+.DS_Store
